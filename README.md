@@ -1,14 +1,14 @@
 # openshift-navigate-cloud
 
 ## Prerequisites
-Install MongoDB
-Install Node.js version 6.9.1
-Install Global Node Modules
-  * [https://github.com/gruntjs/grunt-cli](grunt cli)
-  * [https://mochajs.org/](mocha)
+Install MongoDB<br>
+Install Node.js version 6.9.1<br>
+Install Global Node Modules<br>
+  * [grunt cli] (https://github.com/gruntjs/grunt-cli)
+  * [mocha] (https://mochajs.org/)
 
 ## Running
-cd openshift-navigate-cloud
-npm install
-grunt serve
+cd openshift-navigate-cloud<br>
+npm install<br>
+grunt serve<br>
 
