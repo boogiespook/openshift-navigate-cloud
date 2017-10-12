@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "openshiftnavigate-174013",
+  "private_key_id": "f234061cf7254c82b8ab4893d60f7b7dc3a2f882",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQClhn7VnxIVuRtv\n/xUc0mm7vwdLwEG88yPagbIlIq3kAcSPEO8mAIngIsKmZaH8nvNPOrpAWu7xuDNF\nIQ8TzZv9y4dB8OJVm1mxJ+4rJbOHL0+MSdkw9wVoGFvjid23Lc4WI4asWk/rBx1g\n1tkACLHY09/2le5Tkh2TtK1wc1TgmWMjJaTwDxGqgxVpxMo2m/G5tKdyuRc5y+fc\n2j80OnqhVV6WCRx9jL292T1opPl3FIWRleKt57JDzxfoftJ2/qWBV8dh0y7wm6A6\n9m86WGRxl6QteEauefxhbgeiPyOqxG23FA/br91ORArJnQVTtjd9zeltyDizg9qv\n0u9oQhrxAgMBAAECgf9T2j6GmX7f4lYz9lULtMw7gBqCFXM39TREjU9h4J+W0g5x\nK3L7HWq7UOCqyvG0uBEqIeYYk/hYG6hdbNHmhlJvz5tFnHIMTBaz2DafRQodgaoa\nt45/b6Qdh7mFG2JmWZ39OSIQTfAOcBxB4pUrnzv5S9w5XtrNG0hAe1chkEt/O2Sc\n85C9Sd+IE5sAkNNggo8iyVC8sp0XnkEkeEBoIKIgX48KRVndBzuGtlLBpDLxBuZj\nYmv5i5VICcpKG0PSRrZV5skUiGk7wpDpR8HJWW2+kmwbrW6/cnwOqxxxy3HFSHhF\nDw83VW2W55DsGeYaDzzNHq8Idq/AsiyDntvgOYECgYEAzfXNQVn2hTzTtH1VVmMM\nqrDxDfznvZHOd5ZlhWrb78Ddxv9rSIsXQuAb2WAmeyRaLv76pNJcEd1tbLKoVALN\nG3z+w3tIg6IP+rdorrsfJ5cpHhOEToZl9yvb2xYYqHpU8xwls/F8hqR9zTa4KseO\nSkh9eHVG4umNZrw8XF43H4ECgYEAzb3AqEx7w+52eszCsvu70WsHDr33JoAtHdc5\nWHEmNIHzN4cpNUU77AP4qQ+YnQC7ZDAWIGcFxn6R488GYPyQOTvDvby04U/vW6Uq\n98J/wK2FwlKCA+auRZnxFf5061SBQ3nvEPpTn9oY1yVBPlN8ggZX/ypN0zPs+YU0\nX3nms3ECgYBGXGO7oLVEPUyBy5N8yKfKJFqlkbHFpGsplZqnIqNyW6woUJfhF4th\n0FgTQfLDfN7GUVtlNWw4ujGowbwZvz881c3fEF3sgk/9Me00TD7PcqecW8SGYwmw\nkC4ywXC5Fdmxl/sVZzlIcid8FOaDztrAa9VZco8989XXtBTW5WTlgQKBgQDMXCPm\nx/nTt6TV+1eVwzhfHolnGkhJZN3rmyGp+NIzK7Uzvbyv3jJUD+nJu+UiZly8eosv\n6kUxUf2Fo9i5M4XqY7PdXnjoqKafiGMysG6HK5UGXUApsdP+7Jcs+pCWRF0VciOF\n4LB5woAUDDxPNUwiNzznBtVA6X4Ep0xLXeFK8QKBgC0Mjn/WHjPZFqVpcHrQ6J41\nHGCFAsxWcFPz/ATgySA7b4DvXqr21OyRpAgFkwFM1dVWkHjjK0aLqQqzazDpQXqK\n+VjB2q+Mnu0SlQSp+hFFVW5ZpnYb6GDwuhV/rcPznSTs5XkDEN9MIgPOEcHlmQJR\ngjHe+D4zY9PiGfoCrWvk\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudenv@openshiftnavigate-174013.iam.gserviceaccount.com",
+  "client_id": "113058771386108296219",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudenv%40openshiftnavigate-174013.iam.gserviceaccount.com"
+}
