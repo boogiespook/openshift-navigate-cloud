@@ -6,6 +6,7 @@ let dbConnection = require('./lib/models/dbConnection');
 let app = express();
 let logger = require('./lib/logger');
 
+
 // Enable CORS for all requests
 app.use(cors());
 
@@ -25,6 +26,7 @@ app.use('/engagementconfig', require('./lib/routes/engagementConfig.js')());
 app.use('/nextsteps', require('./lib/routes/nextsteps.js')());
 app.use('/admin', require('./lib/routes/admin.js')());
 app.use('/admin', require('./lib/routes/admin.js')());
+app.use('/mindmap', require('./lib/routes/mindMap.js')());
 app.use('/sys/info/ping', require('./lib/routes/ping.js')());
 
 
@@ -33,7 +35,7 @@ app.use('/sys/info/ping', require('./lib/routes/ping.js')());
 
 
 // TOOD: need to remove process.env.FH_PORT
-let port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+let port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
 let host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 app.listen(port, host, function() {
