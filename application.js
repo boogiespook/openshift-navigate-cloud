@@ -63,39 +63,39 @@ app.use('/sys/info/ping', require('./lib/routes/ping.js')());
 // TODO:
 // Add error handling middleware
 
-var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
-var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+// var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
+// var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-const options = {
-  key: fs.readFileSync('./privateKey.pem'),
-  cert: fs.readFileSync('./server.crt')
-};
+// const options = {
+//   key: fs.readFileSync('./privateKey.pem'),
+//   cert: fs.readFileSync('./server.crt')
+// };
 
-https.createServer(options, app).listen(port);
+// https.createServer(options, app).listen(port);
 
-dbConnection.connect(function (err) {
-  if (err) {
-    logger.error('Exiting app, failed to connect to Mongo DB');
-    process.exit();
-  }
-  else {
-    logger.info('App started at: ' + new Date() + ' on port: ' + port);
-  }
-});
-
-
-// // TOOD: need to remove process.env.FH_PORT
-// let port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
-// let host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
-// app.listen(port, host, function() {
-//   dbConnection.connect(function (err) {
-//     if (err) {
-//       logger.error('Exiting app, failed to connect to Mongo DB');
-//       process.exit();
-//     }
-//     else {
-//       logger.info('App started at: ' + new Date() + ' on port: ' + port);
-//     }
-//   });
+// dbConnection.connect(function (err) {
+//   if (err) {
+//     logger.error('Exiting app, failed to connect to Mongo DB');
+//     process.exit();
+//   }
+//   else {
+//     logger.info('App started at: ' + new Date() + ' on port: ' + port);
+//   }
 // });
+
+
+// TOOD: need to remove process.env.FH_PORT
+let port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
+let host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+
+app.listen(port, host, function() {
+  dbConnection.connect(function (err) {
+    if (err) {
+      logger.error('Exiting app, failed to connect to Mongo DB');
+      process.exit();
+    }
+    else {
+      logger.info('App started at: ' + new Date() + ' on port: ' + port);
+    }
+  });
+});
