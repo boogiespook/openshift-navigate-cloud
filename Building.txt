@@ -1,0 +1,5 @@
+docker build -t briangallagher/openshiftnavcloud:v1 .
+
+docker push briangallagher/openshiftnavcloud
+
+docker run --name openshiftnavcloud -p 8001:8001 briangallagher/openshiftnavcloud:v1

@@ -85,7 +85,7 @@ app.use('/sys/info/ping', require('./lib/routes/ping.js')());
 
 
 // TOOD: need to remove process.env.FH_PORT
-let port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
+let port = process.env.OPENSHIFT_NODEJS_PORT || 8001;
 let host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 app.listen(port, host, function() {
