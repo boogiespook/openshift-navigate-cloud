@@ -3,8 +3,8 @@
 const express = require('express');
 const cors = require('cors');
 // const dbConnection = require('./lib/models/dbConnection');
-// const app = express();
-// const logger = require('./lib/logger');
+const app = express();
+const logger = require('./lib/logger');
 // const https = require('https');
 // const fs = require('fs');
 // const passport = require('passport');
@@ -95,7 +95,7 @@ app.listen(port, host, function() {
   //     process.exit();
   //   }
   //   else {
-  //     logger.info('App started at: ' + new Date() + ' on port: ' + port);
+      logger.info('App started at: ' + new Date() + ' on port: ' + port);
   //   }
   // });
 });
