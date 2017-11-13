@@ -25,6 +25,7 @@ app.all('*', function(req, res, next) {
 
   next();
 });
+//test
 
 // TODO: not sure if this is needed
 app.use(require('method-override')());
