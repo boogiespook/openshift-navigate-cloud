@@ -55,7 +55,8 @@
     "analysis": "grunt analysis",
     "debug": "grunt debug",
     "serve": "grunt serve",
-    "start": "node application.js"
+    "start": "node application.js",
+    "start-local": "node application.js"
   },
   "license": "Apache-2.0"
 }

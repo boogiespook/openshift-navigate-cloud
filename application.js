@@ -11,20 +11,81 @@ const passport = require('passport');
 const authInit = require('./lib/services/authInit');
 var ejs = require('ejs');
 
+
+// const options:cors.CorsOptions = {
+//   allowedHeaders: [“Origin”, “X-Requested-With”, “Content-Type”, “Accept”, “X-Access-Token”,“Authorization”],
+//   methods: “GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE”
+// };
+
+// const options:cors.CorsOptions = {
+//   allowedHeaders: [“Origin”, “X-Requested-With”, “Content-Type”, “Accept”, “X-Access-Token”,“Authorization”],
+//   methods: “GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE”
+// };
 // Enable CORS for all requests
-app.use(cors({credentials: true}));
+// app.use(cors({credentials: true, methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE"}));
+
+app.use(cors({
+  'origin' : true,
+  'credentials' :true
+}));
+// app.use(function(req, res, next) {
+//   debugger;
+//   req.corsOptions = {
+//     // 'origin' : req.headers.origin || req.headers.referer,
+//     'credentials' :true
+//   }
+//   next();
+// });
+
+// app.use(function (req, res, next) {
+//   debugger;
+//   app.use(cors(req.corsOptions));
+//   next();
+// });
+
+// app.options(function (req, res, next) {
+//   debugger;
+//   app.use(cors(req.corsOptions));
+//   next();
+// });
+
+// app.use(function(req, res, next) {
+
+//   debugger;
+//   if ('OPTIONS' === req.method) {
+//     //respond with 200
+//     console.log('FOUND OPTIONS !!!!');
+//     return next();
+//   }
+
+//   console.log('setting Access-Control-Allow-Origin header: ' + req.headers.origin || req.headers.referer );
+
+//   res.header('Access-Control-Allow-Origin', req.headers.origin || req.headers.referer);
+//   res.header('Access-Control-Allow-Credentials', true);
+//   res.header('Allow', "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE");
+//   res.header('Access-Control-Allow-Methods', "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE");
+
+//   // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+//   next();
+// });
+
+
+// app.options("/*", function(req, res, next) {
+//   debugger;
+//   console.log('got options!!!!');
+
+//   next();
+// });
+
+
 
 // allow serving of static files from the public directory
 app.use(express.static(__dirname + '/public'));
 
-app.all('*', function(req, res, next) {
-  console.log('setting Access-Control-Allow-Origin header: ' + req.headers.origin || req.headers.referer );
+// app.all('*', function(req, res, next) {
 
-  res.header('Access-Control-Allow-Origin', req.headers.origin || req.headers.referer);
-  // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 
-  next();
-});
 //tests
 // TODO: not sure if this is needed
 app.use(require('method-override')());
@@ -63,32 +124,8 @@ app.use('/sys/info/ping', require('./lib/routes/ping.js')());
 // TODO:
 // Add error handling middleware
 
-// var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
-// var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-// const options = {
-//   key: fs.readFileSync('./privateKey.pem'),
-//   cert: fs.readFileSync('./server.crt')
-// };
-
-// https.createServer(options, app).listen(port);
-
-// dbConnection.connect(function (err) {
-//   if (err) {
-//     logger.error('Exiting app, failed to connect to Mongo DB');
-//     process.exit();
-//   }
-//   else {
-//     logger.info('App started at: ' + new Date() + ' on port: ' + port);
-//   }
-// });
-
-
-// TOOD: need to remove process.env.FH_PORT
-let port = process.env.OPENSHIFT_NODEJS_PORT || 8001;
-let host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
-app.listen(port, host, function() {
+function dbConnect () {
   dbConnection.connect(function (err) {
     if (err) {
       logger.error('Exiting app, failed to connect to Mongo DB');
@@ -98,5 +135,32 @@ app.listen(port, host, function() {
       logger.info('App started at: ' + new Date() + ' on port: ' + port);
     }
   });
-});
+}
+
+var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8001;
+var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+
+// If NODE_ENV is not set we can assume that we are running locally
+// In which case we need
+if (!process.env.NODE_ENV) {
+  const options = {
+    key: fs.readFileSync('./localCredentials/key.pem'),
+    cert: fs.readFileSync('./localCredentials/cert.pem')
+  };
+
+  https.createServer(options, app).listen(port);
+  // TODO: possibly put this in the CB
+  dbConnect();
+}
+else {
+  // Create http server
+  // TODO: May need to revisit this. This may need to be HTTPS with Pass through routing in OS
+  app.listen(port, host, function() {
+    dbConnect();
+  });
+}
+
+
+
+
 
