@@ -46,7 +46,7 @@
   },
   "main": "application.js",
   "scripts": {
-    "test": "grunt test",
+    "test": "./node_modules/mocha/bin/mocha ./test/unit/test-simple",
     "unit": "grunt unit",
     "accept": "grunt accept",
     "coverage": "grunt coverage",
