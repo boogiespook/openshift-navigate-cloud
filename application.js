@@ -11,74 +11,10 @@ const passport = require('passport');
 const authInit = require('./lib/services/authInit');
 var ejs = require('ejs');
 
-
-// const options:cors.CorsOptions = {
-//   allowedHeaders: [“Origin”, “X-Requested-With”, “Content-Type”, “Accept”, “X-Access-Token”,“Authorization”],
-//   methods: “GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE”
-// };
-
-// const options:cors.CorsOptions = {
-//   allowedHeaders: [“Origin”, “X-Requested-With”, “Content-Type”, “Accept”, “X-Access-Token”,“Authorization”],
-//   methods: “GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE”
-// };
-// Enable CORS for all requests
-// app.use(cors({credentials: true, methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE"}));
-
 app.use(cors({
   'origin' : true,
   'credentials' :true
 }));
-// app.use(function(req, res, next) {
-//   debugger;
-//   req.corsOptions = {
-//     // 'origin' : req.headers.origin || req.headers.referer,
-//     'credentials' :true
-//   }
-//   next();
-// });
-
-// app.use(function (req, res, next) {
-//   debugger;
-//   app.use(cors(req.corsOptions));
-//   next();
-// });
-
-// app.options(function (req, res, next) {
-//   debugger;
-//   app.use(cors(req.corsOptions));
-//   next();
-// });
-
-// app.use(function(req, res, next) {
-
-//   debugger;
-//   if ('OPTIONS' === req.method) {
-//     //respond with 200
-//     console.log('FOUND OPTIONS !!!!');
-//     return next();
-//   }
-
-//   console.log('setting Access-Control-Allow-Origin header: ' + req.headers.origin || req.headers.referer );
-
-//   res.header('Access-Control-Allow-Origin', req.headers.origin || req.headers.referer);
-//   res.header('Access-Control-Allow-Credentials', true);
-//   res.header('Allow', "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE");
-//   res.header('Access-Control-Allow-Methods', "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE");
-
-//   // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-
-//   next();
-// });
-
-
-// app.options("/*", function(req, res, next) {
-//   debugger;
-//   console.log('got options!!!!');
-
-//   next();
-// });
-
-
 
 // allow serving of static files from the public directory
 app.use(express.static(__dirname + '/public'));
