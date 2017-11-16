@@ -1,6 +1,5 @@
 'use strict';
 
-//test
 
 const express = require('express');
 const cors = require('cors');
